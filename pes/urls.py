@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from .views import EvenListView
 
 urlpatterns = [
-        path('', views.index, name="index")
+        path('', EvenListView.as_view(), name="index")
 ]

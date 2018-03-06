@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+from .models import Event
 
-def index(request):
-    return HttpResponse("Hello dear PES!")
 
-# Create your views here.
+class EvenListView(ListView):
+    model = Event
