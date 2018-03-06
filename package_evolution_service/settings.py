@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'package_evolution_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'package_evolution_service',
-        'USER': 'test',
-        'PASSWORD': 'test',
-        'HOST': '127.0.0.1',
+        'NAME': os.environ['POSTGRESQL_DATABASE'],
+        'USER': os.environ['POSTGRESQL_USER'],
+        'PASSWORD': os.environ['POSTGRESQL_PASSWORD'],
+        'HOST': os.environ['POSTGRESQL_HOST'],
         'PORT': '5432',
     }
 }
