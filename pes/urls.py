@@ -1,7 +1,9 @@
 from django.urls import path
 
-from .views import EvenListView
+from . import views
 
+app_name = 'pes'
 urlpatterns = [
-        path('', EvenListView.as_view(), name="index")
+        path('', views.EventListView.as_view(), name="index"),
+        path('new', views.ReleaseCreate.as_view(), name="new"),
 ]
