@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.views.generic.list import ListView
+from django.views import generic
 from .forms import *
 
+from .models import Event, Release
 
-class EventListView(ListView):
+class EventListView(generic.ListView):
     model = Event
 
 
@@ -33,3 +34,7 @@ def event_create_view(request):
     template = 'pes/event_create.html'
     context = {'event_form': event_form, 'package_set_form': package_set_form, 'package_form': package_form}
     return render(request, template_name=template, context=context)
+
+class ReleaseCreateView(generic.CreateView):
+    model = Release
+    fields =['os_name', 'major_version', 'minor_version']
