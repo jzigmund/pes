@@ -1,0 +1,6 @@
+django
+psycopg2
+gunicorn
+django_extensions
+typing
+jinja2
