@@ -19,7 +19,7 @@ from django.urls import include, path
 from django.views.generic import RedirectView
 
 urlpatterns = [
-    path('login/', LoginView.as_view(redirect_authenticated_user=True)),
+    path('login/', LoginView.as_view(redirect_authenticated_user=True), name="login"),
     path('logout/', LogoutView.as_view()),
     path('pes/', include('pes.urls')),
     path('admin/', admin.site.urls),
