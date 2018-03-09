@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views import generic
@@ -5,10 +7,12 @@ from .forms import *
 
 from .models import Event, Release
 
+
 class EventListView(generic.ListView):
     model = Event
 
 
+@login_required
 def event_create_view(request):
     event_form = EventForm()
     package_set_form = PackageSetForm()
@@ -35,6 +39,7 @@ def event_create_view(request):
     context = {'event_form': event_form, 'package_set_form': package_set_form, 'package_form': package_form}
     return render(request, template_name=template, context=context)
 
-class ReleaseCreateView(generic.CreateView):
+
+class ReleaseCreateView(LoginRequiredMixin, generic.CreateView):
     model = Release
-    fields =['os_name', 'major_version', 'minor_version']
+    fields = ['os_name', 'major_version', 'minor_version']
