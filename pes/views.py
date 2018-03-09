@@ -43,3 +43,7 @@ def event_create_view(request):
 class ReleaseCreateView(LoginRequiredMixin, generic.CreateView):
     model = Release
     fields = ['os_name', 'major_version', 'minor_version']
+
+
+class ReleaseListView(generic.ListView):
+    model = Release
