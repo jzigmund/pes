@@ -23,5 +23,5 @@ urlpatterns = [
     path('logout/', LogoutView.as_view()),
     path('pes/', include('pes.urls')),
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/pes/')),
+    path('', RedirectView.as_view(url='/pes/events')),
 ]
